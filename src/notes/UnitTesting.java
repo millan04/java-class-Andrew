@@ -13,6 +13,9 @@ public class UnitTesting {
     int n = 6;
     boolean result = isEven(n);
     System.out.println(result);
+    int m=10;
+    boolean result2=isEven(m);
+    System.out.println(result2);
   }
   
   public static boolean isEven(int n) {
