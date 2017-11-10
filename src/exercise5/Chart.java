@@ -1,10 +1,14 @@
 package exercise5;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
+import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.regex.Matcher;
@@ -17,5 +21,31 @@ import java.util.regex.Pattern;
  * @author yasiro01
  */
 public class Chart {
-
+    private HashMap<Integer, String> songs; 
+    private HashMap<Integer, String> artists;
+    
+    public Chart(String fileName) throws IOException{
+        this.songs = new HashMap();
+        this.artists= new HashMap();
+        BufferedReader inputFile = new BufferedReader(new FileReader(fileName));
+        String line;
+        ArrayList<String> music = new ArrayList<String>();
+        ArrayList<String> artist = new ArrayList<String>();
+        while ((line = inputFile.readLine()) != null) {
+            /* Turn each line into a Scanner object and parse it one token at a time */
+            Scanner lineContent = new Scanner(line);
+            while (lineContent.hasNext()) {
+                String[] parts = lineContent.next().split(",");
+                music.add(parts[1]);
+                artist.add(parts[2]);
+            }
+        }
+        for(int i=0; i< music.size(); i++){
+            songs.put(i, music.get(i));
+            artists.put(i, artist.get(i));
+        }
+    }
+    public String getSong(int index){
+        return songs.get(index)+" by "+ artists.get(index);
+    }
 }

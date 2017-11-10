@@ -6,5 +6,26 @@ package exercise5;
  * @author yasiro01
  */
 public class Company {
+  private String name;
+  private double stockPrice;
   
+  public Company(String name, double stockPrice){
+      this.name= name;
+      this.stockPrice=00.00;
+      this.stockPrice= stockPrice;    
+  }
+  public String getName(){
+      return name;
+  }
+  public double getStockPrice() {
+      return stockPrice;
+  }
+  
+  public void setStockPrice(double stockPrice){
+      this.stockPrice=stockPrice;
+  }
+  @Override
+  public String toString(){
+     return name + " trading at $"+ Double.toString(stockPrice)+"0";
+    }
 }
