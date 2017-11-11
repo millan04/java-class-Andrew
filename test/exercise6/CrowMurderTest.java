@@ -1,5 +1,6 @@
 package exercise6;
 
+import java.io.FileNotFoundException;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -12,10 +13,12 @@ import static org.junit.Assert.*;
  * @author yasiro01
  */
 public class CrowMurderTest {
-  CrowMurder instance1 = new CrowMurder("data/zoo1.txt");
-  CrowMurder instance2 = new CrowMurder("data/zoo2.txt");
+  CrowMurder instance1;
+  CrowMurder instance2;
   
-  public CrowMurderTest() {
+  public CrowMurderTest() throws FileNotFoundException {
+        this.instance1 = new CrowMurder("data/zoo1.txt");
+        this.instance2 = new CrowMurder("data/zoo2.txt");
   }
   
   @BeforeClass
@@ -55,10 +58,10 @@ public class CrowMurderTest {
   public void testGetChief() {
     System.out.println("CrowMurder.getChief");
     Crow expResult = new Crow("Juggernaut", 76);
-    Crow result = instance1.getChief();
+    Crow result = (Crow) instance1.getChief();
     assertEquals(expResult, result);
     expResult = new Crow("Gentle Isotope", 86);
-    result = instance2.getChief();
+    result = (Crow) instance2.getChief();
     assertEquals(expResult, result);
   }
   

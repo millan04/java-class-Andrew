@@ -1,5 +1,6 @@
 package exercise6;
 
+import java.io.FileNotFoundException;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -12,10 +13,12 @@ import static org.junit.Assert.*;
  * @author yasiro01
  */
 public class LemurConspiracyTest {
-  LemurConspiracy instance1 = new LemurConspiracy("data/zoo1.txt");
-  LemurConspiracy instance2 = new LemurConspiracy("data/zoo2.txt");
+  LemurConspiracy instance1;
+  LemurConspiracy instance2;
   
-  public LemurConspiracyTest() {
+  public LemurConspiracyTest() throws FileNotFoundException {
+        this.instance2 = new LemurConspiracy("data/zoo2.txt");
+        this.instance1 = new LemurConspiracy("data/zoo1.txt");
   }
   
   @BeforeClass
@@ -55,10 +58,10 @@ public class LemurConspiracyTest {
   public void testGetChief() {
     System.out.println("LemurConspiracy.getChief");
     Lemur expResult = new Lemur("Underrated Thunder", 74);
-    Lemur result = instance1.getChief();
+    Lemur result = (Lemur) instance1.getChief();
     assertEquals(expResult, result);
     expResult = new Lemur("Joyful Juggernaut", 43);
-    result = instance2.getChief();
+    result = (Lemur) instance2.getChief();
     assertEquals(expResult, result);
   }
   

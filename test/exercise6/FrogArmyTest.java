@@ -1,5 +1,6 @@
 package exercise6;
 
+import java.io.FileNotFoundException;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -12,10 +13,12 @@ import static org.junit.Assert.*;
  * @author yasiro01
  */
 public class FrogArmyTest {
-  FrogArmy instance1 = new FrogArmy("data/zoo1.txt");
-  FrogArmy instance2 = new FrogArmy("data/zoo2.txt");
+  FrogArmy instance1;
+  FrogArmy instance2;
   
-  public FrogArmyTest() {
+  public FrogArmyTest() throws FileNotFoundException {
+        this.instance2 = new FrogArmy("data/zoo2.txt");
+        this.instance1 = new FrogArmy("data/zoo1.txt");
   }
   
   @BeforeClass
@@ -55,10 +58,10 @@ public class FrogArmyTest {
   public void testGetChief() {
     System.out.println("FrogArmy.getChief");
     Frog expResult = new Frog("Wild Lover", 100);
-    Frog result = instance1.getChief();
+    Frog result = (Frog) instance1.getChief();
     assertEquals(expResult, result);
     expResult = new Frog("Underrated Killer", 79);
-    result = instance2.getChief();
+    result = (Frog) instance2.getChief();
     assertEquals(expResult, result);
   }
   

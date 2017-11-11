@@ -1,5 +1,6 @@
 package exercise6;
 
+import java.io.FileNotFoundException;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -12,10 +13,12 @@ import static org.junit.Assert.*;
  * @author yasiro01
  */
 public class KangarooMobTest {
-  KangarooMob instance1 = new KangarooMob("data/zoo1.txt");
-  KangarooMob instance2 = new KangarooMob("data/zoo2.txt");
+  KangarooMob instance1;
+  KangarooMob instance2;
   
-  public KangarooMobTest() {
+  public KangarooMobTest() throws FileNotFoundException {
+        this.instance2 = new KangarooMob("data/zoo2.txt");
+        this.instance1 = new KangarooMob("data/zoo1.txt");
   }
   
   @BeforeClass
@@ -55,10 +58,10 @@ public class KangarooMobTest {
   public void testGetChief() {
     System.out.println("KangarooMob.getChief");
     Kangaroo expResult = new Kangaroo("Wind", 99);
-    Kangaroo result = instance1.getChief();
+    Kangaroo result = (Kangaroo) instance1.getChief();
     assertEquals(expResult, result);
     expResult = new Kangaroo("Wild Axe", 93);
-    result = instance2.getChief();
+    result = (Kangaroo) instance2.getChief();
     assertEquals(expResult, result);
   }
   
