@@ -37,8 +37,7 @@ public class MediaLibrary {
                             lineContent[3],  // director
                             Integer.parseInt(lineContent[4]),  // releaseYear
                             Long.parseLong(lineContent[1]),  //id
-                            lineContent[2]  // title
-                          )
+                            lineContent[2]  // title                          )
                     );
             break;
           case "3":
