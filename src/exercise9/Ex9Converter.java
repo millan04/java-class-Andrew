@@ -6,8 +6,8 @@ package exercise9;
  */
 public class Ex9Converter {
   public Double c2f(Double valueFrom) {
-      Double far= (valueFrom * (9/5)) +32;
-      return far;
+      Double fahr= (valueFrom * 9/5) +32;
+      return fahr;
   }
 
   public Double c2k(Double valueFrom) {
@@ -15,12 +15,12 @@ public class Ex9Converter {
   }
 
   public Double f2c(Double valueFrom) {
-    Double cel=(valueFrom - 32) * (5/9);
+    Double cel=(valueFrom - 32) * 5/9;
     return cel;
   }
 
   public Double f2k(Double valueFrom) {
-    Double kel= (valueFrom-32)*(5/9) +273.15;
+    Double kel= (valueFrom-32)*5/9 +273.15;
     return kel;
   }
 
@@ -29,7 +29,7 @@ public class Ex9Converter {
   }
 
   public Double k2f(Double valueFrom) {
-    Double far=(valueFrom - 273.15) * 9/5 + 32 ;
-    return far;
+    Double fahr=(valueFrom - 273.15) * 9/5 + 32 ;
+    return fahr;
   }
 }
