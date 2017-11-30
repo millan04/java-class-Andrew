@@ -17,11 +17,13 @@ import java.util.regex.Pattern;
  * @author yasiro01
  */
 public class BookShop {
-
+//    private ArrayList<Object> catalog;
   public BookShop() {
+      ArrayList<Object> catalog;
   }
   
   public BookShop(String filename) throws FileNotFoundException {
+      
   }
   
   public BookShop(BookShop anotherBookShop) {
