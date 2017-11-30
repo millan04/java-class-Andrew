@@ -8,10 +8,10 @@ import java.util.Objects;
  * @author yasiro01
  */
 public class Book {
-    private final String title;
-    private final String author;
-    private Double price;
-    private final Integer year;
+    final String title;
+    final String author;
+    Double price;
+    final Integer year;
     
     public Book(String title, String author, Double price, Integer year){
         this.title=title;
@@ -82,7 +82,7 @@ public class Book {
 
     @Override
     public String toString() {
-        return title + '('+year + ')'+" by " + author + " costs $" + price;
+        return title + " ("+year + ')'+" by " + author + " costs $" + price;
     }
     
     
@@ -92,40 +92,28 @@ class ByTitle implements Comparator<Book> {
 
     @Override
     public int compare(Book o1, Book o2) {
-        if(o1.getTitle().equals(o2.getTitle())){
-            return 1;
-        }
-        return 0;
+        return  o1.title.compareTo(o2.title);
     }
     
 }
 
 class ByAuthor implements Comparator<Book> {
-     @Override
+    @Override
     public int compare(Book o1, Book o2) {
-        if(o1.getAuthor().equals(o2.getAuthor())){
-            return 1;
-        }
-        return 0;
+        return  o1.author.compareTo(o2.author);
     }
 }
 
 class ByPrice implements Comparator<Book> {
-     @Override
+    @Override
     public int compare(Book o1, Book o2) {
-        if(o1.getPrice().equals(o2.getPrice())){
-            return 1;
+        return  o1.price.compareTo(o2.price);
         }
-        return 0;
-    }
 }
 
 class ByYear implements Comparator<Book> {
-     @Override
+    @Override
     public int compare(Book o1, Book o2) {
-        if(o1.getYear().equals(o2.getYear())){
-            return 1;
-        }
-        return 0;
+        return  o1.year.compareTo(o2.year);
     }
 }
