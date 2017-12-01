@@ -14,6 +14,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.lang.String;
 import exercise10.Book;
+import java.io.File;
 import java.util.Arrays;
 import java.util.Iterator;
 import java.util.List;
@@ -30,19 +31,23 @@ public class BookShop {
   }
   
   public BookShop(String filename) throws FileNotFoundException, IOException {
-        BufferedReader inputFile = new BufferedReader(new FileReader(filename));
-        String line;
-        while ((line = inputFile.readLine()) != null) {
-            Scanner lineContent = new Scanner(line);
-            while (lineContent.hasNext()) {
-                String[] parts = lineContent.next().split(",");
-                System.out.println(parts[0]);
-                Book o= new Book(parts[0], parts[1].toString(),Double.parseDouble(parts[2]),Integer.parseInt(parts[3]));
-                
-//                this.catalog.add(o);
-            }
-        }
-    }
+        this.catalog = new ArrayList();
+           FileReader fileReader = new FileReader(filename);
+           BufferedReader bufferedReader = new BufferedReader (fileReader);
+           String line;
+           while ((line = bufferedReader.readLine()) !=null){
+               String[] parts = line.split(",");
+               Book o = new Book(parts[0], parts[1], Double.parseDouble(parts[2]), Integer.parseInt(parts[3]));
+               catalog.add(o);
+
+                       }
+               fileReader.close();
+
+           }
+
+            
+        
+    
 
   
   public BookShop(BookShop anotherBookShop) {
@@ -58,13 +63,19 @@ public class BookShop {
   }
   
   public void discountAll(Double discountPercent) {
-      
+      Double multi= discountPercent/100;
+      for(int i=0; i<catalog.size(); i++){
+          Double amount = catalog.get(i).getPrice();
+          catalog.get(i).setPrice(amount - (amount*multi));
+      }
   }
   
   public void printCatalog() {
+      ArrayList<String> storage = new ArrayList();
         for (Book catalog1 : catalog) {
-            System.out.println(catalog1);
+            storage.add(catalog1+"\n");
         }
+        System.out.println(storage);
   }
   
   public void order(Comparator<Book> comp) {
