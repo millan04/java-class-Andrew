@@ -95,22 +95,22 @@ public class Ex11LogicTest {
     System.setOut(new PrintStream(outContent));
 
     outContent.reset();
-    expectedResult = "[8, 19, 19, 5, 24, 2, 2, 2, 18, 6] ";
+    expectedResult = "[8, 19, 19, 5, 24, 2, 2, 2, 18, 6]";
     logicTester.printList(intArrLst);
     assertEquals(expectedResult, outContent.toString());
     
     outContent.reset();
-    expectedResult = "[0.125, 0.05263157894736842, 0.05263157894736842, 0.2, 0.041666666666666664, 0.5, 0.5, 0.5, 0.05555555555555555, 0.16666666666666666] ";
+    expectedResult = "[0.125, 0.05263157894736842, 0.05263157894736842, 0.2, 0.041666666666666664, 0.5, 0.5, 0.5, 0.05555555555555555, 0.16666666666666666]";
     logicTester.printList(dblArrLst);
     assertEquals(expectedResult, outContent.toString());
     
     outContent.reset();
-    expectedResult = "{2=true, 18=true, 19=false, 5=false, 6=true, 8=true, 24=true} ";
+    expectedResult = "{2=true, 18=true, 19=false, 5=false, 6=true, 8=true, 24=true}";
     logicTester.printList(boolHashMap);
     assertEquals(expectedResult, outContent.toString());
     
     outContent.reset();
-    expectedResult = "[C, S, T, F, G, I, Y] ";
+    expectedResult = "[C, S, T, F, G, I, Y]";
     logicTester.printList(chrSet);
     assertEquals(expectedResult, outContent.toString());
   }
